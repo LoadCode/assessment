@@ -2,9 +2,13 @@
 #define _MODULE_H_
 
 
+const uint8_t BCK_SPACE_CHAR 8;
+const uint8_t NEW_LINE_CHAR  10;
+const uint8_t CARRIAGE_RTRN  13;
+
 /* Parameter: cmd_in is a pointer to a buffer to store 
 *  the user input data (command)
-*  Returns: The length of the buffer ()
+*  Returns: The length of the buffer
 */
 uint8_t command_read(char *cmd_in);
 
