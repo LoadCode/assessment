@@ -1,5 +1,6 @@
 #ifndef _SERIAL_PORT_H
 #define _SERIAL_PORT_H
+#include "module.h"  //just for bool_t definition
 
  /* SER_ReadByte: Reads a byte from the Serial Port Input FIFO
 * /param [OUT] pu8ReadByte: Pointer of memory where the read byte will be stored

@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
-#include "unit_test.h"
 #include "module.h"
 #include "serial_port.h"
 #include "app.h"
@@ -17,12 +16,12 @@ const uint8_t MIN_BUFF_IDX   = 0;
 
 uint8_t command_read(char *cmd_in)
 {
-	char data_in = 0;
+	uint8_t data_in = 0;
 	uint8_t ctr  = 0;
 
 	while(data_in != CARRIAGE_RTRN)
 	{
-		if(read_serial(&data_in))
+		if(SER_ReadByte(&data_in))
 		{
 			if(data_in == BCK_SPACE_CHAR)
 			{
@@ -35,6 +34,7 @@ uint8_t command_read(char *cmd_in)
 			else
 			{
 				cmd_in[ctr] = data_in;
+				SER_WriteByte(data_in);
 				ctr++;
 			}
 
