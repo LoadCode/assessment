@@ -7,11 +7,13 @@ typedef enum{false, true} bool_t;
 extern const uint8_t BCK_SPACE_CHAR;
 extern const uint8_t NEW_LINE_CHAR ;
 extern const uint8_t CARRIAGE_RTRN ;
+extern const uint8_t MAX_BUFF_LEN  ;
+extern const uint8_t MIN_BUFF_IDX  ;
 
 
 /* Parameter: cmd_in is a pointer to a buffer to store 
 *  the user input data (command)
-*  Returns: The length of the buffer
+*  Returns: The length of the data readed
 */
 uint8_t command_read(char *cmd_in);
 

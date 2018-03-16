@@ -7,12 +7,13 @@
 
 int main(int argc, char const *argv[])
 {
-	char command_in[20];
+	char command_in[MAX_BUFF_LEN];
+	uint8_t len = 0;
 
-	command_read(command_in);
+	len = command_read(command_in);
 
-	
+	printf("cmd = %s\nlen = %d\n", command_in, len);
 
-	
+
 	return 0;
 }
