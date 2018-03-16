@@ -4,14 +4,18 @@
 
 typedef enum{FALSE, TRUE} bool_t;
 
+#define READ_VOLTAGE 1
+#define READ_CURRENT 2
+#define USR_VERIFY   3
+
 extern const uint8_t BCK_SPACE_CHAR;
 extern const uint8_t NEW_LINE_CHAR ;
 extern const uint8_t CARRIAGE_RTRN ;
 extern const uint8_t MAX_BUFF_LEN  ;
 extern const uint8_t MIN_BUFF_IDX  ;
 
-
-/* Parameter: cmd_in is a pointer to a buffer to store 
+/* Read the user input until the command entered is valid, otherwise keep looping
+*  Parameter: cmd_in is a pointer to a buffer to store 
 *  the user input data (command)
 *  Returns: The length of the data readed
 */
@@ -24,26 +28,31 @@ uint8_t command_read(char *cmd_in);
 *  Valid commands: 
 					+ "read voltage"
 					+ "read current"
-					+ carriage return "\r"
+					+  carriage return "\r"
 */
-bool_t cmd_validation(char *cmd);
+bool_t cmd_validation(const char *cmd);
+
+/* Returns the identifier for the command type entered by the user (read current, voltage o testing)
+*  Parameters: A buffer containing the command string.
+*/
+uint8_t get_command_type(const char *cmd);
 
 
 /* Builds a string with data in an user readable format
 *  Parameters:
-*				+ value:   an integer with current or voltage data
-*				+ cmd:     a pointer to the command string
-*				+ out_str: a pointer to the string that is to be send
+*				+ value   : an integer with current or voltage data
+*				+ cmd_type: an integer that identify the command type
+*				+ out_str : a pointer to the string that is to be send
 *  Returns: Nothing
 */
-void build_rtn_str(uint16_t value, const char *cmd, char *out_str);
+void build_rtn_str(uint16_t value, uint8_t cmd_type, char *out_str);
 
 
 /* 
-*  Parameters: out_str is a pointer to the formated buffer that is to be send
+*  Parameters: out_str is a pointer to the formated buffer that is to be send throught serial port
 *  Returns: Nothing
 */
-void send_info(char *out_str);
+void send_info(const char *out_str);
 
 
 #endif

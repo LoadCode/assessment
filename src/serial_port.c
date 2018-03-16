@@ -3,9 +3,8 @@
 #include <string.h>
 #include "serial_port.h"
 
-const char test_str[] = "ra\bead val\b\boltageh\b\n\r";
-const char true_str[] = "read current";
-
+//const char test_str[] = "ra\bead val\b\boltageh\b\n\r";
+const char test_str[] = "ra\bead val\b\b\bcurrent\n\r";
 
 bool_t SER_ReadByte(uint8_t *pu8ReadByte)
 {
