@@ -2,9 +2,12 @@
 #define _MODULE_H_
 
 
-const uint8_t BCK_SPACE_CHAR 8;
-const uint8_t NEW_LINE_CHAR  10;
-const uint8_t CARRIAGE_RTRN  13;
+typedef enum{false, true} bool_t;
+
+extern const uint8_t BCK_SPACE_CHAR;
+extern const uint8_t NEW_LINE_CHAR ;
+extern const uint8_t CARRIAGE_RTRN ;
+
 
 /* Parameter: cmd_in is a pointer to a buffer to store 
 *  the user input data (command)

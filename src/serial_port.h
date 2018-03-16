@@ -1,8 +1,6 @@
 #ifndef _SERIAL_PORT_H
 #define _SERIAL_PORT_H
 
-typedef enum{false, true} bool_t;
-
  /* SER_ReadByte: Reads a byte from the Serial Port Input FIFO
 * /param [OUT] pu8ReadByte: Pointer of memory where the read byte will be stored
 * /retval bool_t : [TRUE: A byte was read from serial port FIFO]
