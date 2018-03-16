@@ -2,7 +2,7 @@
 #define _MODULE_H_
 
 
-typedef enum{false, true} bool_t;
+typedef enum{FALSE, TRUE} bool_t;
 
 extern const uint8_t BCK_SPACE_CHAR;
 extern const uint8_t NEW_LINE_CHAR ;
@@ -20,7 +20,7 @@ uint8_t command_read(char *cmd_in);
 
 /* Check if the command entered by the user is a valid command
 *  Parameter: cmd is a pointer to a buffer where data input is stored
-*  Returns: true if the command input by user is a valid command, false otherwise
+*  Returns: TRUE if the command input by user is a valid command, FALSE otherwise
 *  Valid commands: 
 					+ "read voltage"
 					+ "read current"
@@ -43,7 +43,7 @@ void build_rtn_str(uint16_t value, const char *cmd, char *out_str);
 *  Parameters: out_str is a pointer to the formated buffer that is to be send
 *  Returns: Nothing
 */
-void send_info(const char *out_str);
+void send_info(char *out_str);
 
 
 #endif

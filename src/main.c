@@ -8,12 +8,19 @@
 int main(int argc, char const *argv[])
 {
 	char command_in[MAX_BUFF_LEN];
-	uint8_t len = 0;
+	bool_t valid_cmd;
 
-	len = command_read(command_in);
+	do
+	{
+		command_read(command_in);
+		valid_cmd = cmd_validation(command_in);
 
-	printf("cmd = %s\nlen = %d\n", command_in, len);
+		if(!valid_cmd)
+			send_info("\nError: wrong format\r\n");
 
+	}while(!valid_cmd);
 
+	
+	
 	return 0;
 }
