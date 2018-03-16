@@ -2,13 +2,15 @@
 #include <stdint.h>
 #include <string.h>
 #include "module.h"
+#include "app.h"
 
 
 
 int main(int argc, char const *argv[])
 {
 	char command_in[MAX_BUFF_LEN];
-	bool_t valid_cmd;
+	bool_t valid_cmd, usr_verify = FALSE;
+	uint16_t value_rdd;
 
 	do
 	{
@@ -21,6 +23,20 @@ int main(int argc, char const *argv[])
 	}while(!valid_cmd);
 
 	
+	if(!strncmp(command_in, "read voltage", MAX_BUFF_LEN))
+	{
+		value_rdd = APP_ReadVoltage();
+	}
+	else if(!strncmp(command_in, "read current", MAX_BUFF_LEN))
+	{
+		value_rdd = APP_ReadCurrent();
+	}
+	else
+	{
+		usr_verify = TRUE;
+	}
 	
+	
+
 	return 0;
 }
